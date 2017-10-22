@@ -61,11 +61,23 @@
     <script>
         window.addEventListener('keydown', (e) => {
             const suara = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"`)
             if(!suara) return //Handel kalo inputan gak ada
             suara.currentTime = 0; //Buat rewind abis diclick
             suara.play() //Buat play dari selector data-key
-            console.log(suara)
+            key.classList.add('playing')
+            
         })
+
+        function removeTransition(e) {
+            if(e.propertyName !== 'transform') return
+            console.log(e.propertyName)
+        }
+
+        const keys = document.querySelectorAll('.key')
+        // keys.forEach(key => key.addEventListener('transitioned',removeTransition))
+        console.log(keys)
+
     </script>
 </body>
 
