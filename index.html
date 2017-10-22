@@ -61,10 +61,9 @@
     <script>
         window.addEventListener('keydown', (e) => {
             const suara = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-
-            if(!suara) return;
-
-            suara.play()
+            if(!suara) return //Handel kalo inputan gak ada
+            suara.currentTime = 0; //Buat rewind abis diclick
+            suara.play() //Buat play dari selector data-key
             console.log(suara)
         })
     </script>
